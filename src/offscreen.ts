@@ -37,8 +37,8 @@ async function main({
   const keypair = Keypair.fromSecretKey(secretKey, {
     skipValidation: true,
   });
-  // ws = new WebSocket("wss://uptimechecker-hub.onrender.com");
-  ws = new WebSocket("ws://localhost:443");
+  ws = new WebSocket("wss://uptimechecker-hub.onrender.com");
+  // ws = new WebSocket("ws://localhost:443");
   let ipaddr: string;
 
   ws.onerror = (error) => {
