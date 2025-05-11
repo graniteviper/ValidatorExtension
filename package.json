@@ -1,0 +1,25 @@
+{
+  "name": "ext2",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "bun build src/popup.ts src/background.ts src/offscreen.ts --outdir=dist --target=browser"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/chrome": "^0.0.316"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.98.1",
+    "@types/node": "^22.15.3",
+    "buffer": "^6.0.3",
+    "crypto": "^1.0.1",
+    "tweetnacl": "^1.0.3",
+    "tweetnacl-util": "^0.15.1",
+    "uuid": "^11.1.0"
+  }
+}

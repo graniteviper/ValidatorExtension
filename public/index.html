@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Validator Wallet</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1e2124;
+      color: #f0f2f5;
+      width: 320px;
+      height: 450px;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    
+    .container {
+      background-color: #282c34;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      text-align: center;
+      height: calc(100% - 40px);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    h2 {
+      color: #f0f2f5;
+      font-size: 20px;
+      margin: 0;
+    }
+    
+    .solana-logo {
+      color: #5d9cf5;
+      font-weight: bold;
+      margin-right: 6px;
+    }
+    
+    .intro-text {
+      color: #a0a5b0;
+      margin-bottom: 20px;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: left;
+    }
+    
+    .reward-info {
+      background-color: rgba(93, 156, 245, 0.1);
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 20px;
+      text-align: left;
+      border-left: 3px solid #5d9cf5;
+    }
+    
+    .reward-info h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #5d9cf5;
+    }
+    
+    .reward-info p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #c0c5d0;
+    }
+    
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    
+    .input-label {
+      display: block;
+      text-align: left;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #c0c5d0;
+    }
+    
+    #walletInput {
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 14px;
+      border: 1px solid #3a3f48;
+      border-radius: 6px;
+      box-sizing: border-box;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      background-color: #1e2124;
+      color: #f0f2f5;
+    }
+    
+    #walletInput:focus {
+      border-color: #5d9cf5;
+      box-shadow: 0 0 0 2px rgba(93, 156, 245, 0.2);
+      outline: none;
+    }
+    
+    #walletInput::placeholder {
+      color: #6c7380;
+    }
+    
+    #submitBtn,#connectBtn {
+      background-color: #5d9cf5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100%;
+      margin-top: auto;
+    }
+    #disconnectBtn {
+      background-color: #ec4640;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100%;
+      margin-top: auto;
+    }
+    
+    #submitBtn:hover,#connectBtn:hover {
+      background-color: #70a8ff;
+    }
+    #disconnectBtn {
+      background-color: #ee2d17;
+    }
+    
+    .stats {
+      margin-top: 20px;
+      background-color: #1e2124;
+      border-radius: 6px;
+      padding: 15px;
+      text-align: left;
+    }
+    
+    .stats h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    
+    .stat-item {
+      padding: 8px;
+    }
+    
+    .stat-label {
+      font-size: 12px;
+      color: #a0a5b0;
+    }
+    
+    .stat-value {
+      font-size: 16px;
+      font-weight: 600;
+      color: #5d9cf5;
+    }
+    
+    .footer {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #a0a5b0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="solana-logo">◎</span>
+      <h2>Solana Validator</h2>
+    </div>
+    
+    <div class="intro-text">
+      Join our network of validators and earn SOL by contributing your device's processing power to monitor website uptime and latency.
+    </div>
+    
+    <div class="reward-info">
+      <h3>How Rewards Work</h3>
+      <p>Your device performs validation checks on websites, measuring uptime and response times. Each successful validation earns you SOL tokens directly to your wallet. The more accurate your validations, the higher your rewards!</p>
+    </div>
+    
+    <div class="input-group">
+      <label class="input-label">Your Solana Wallet Address</label>
+      <input type="text" id="walletInput" placeholder="e.g. 5YNmX8Vj81ybbN..." />
+    </div>
+    
+    <div class="stats">
+      <h3>Your Statistics</h3>
+      <div class="stat-grid">
+        <div class="stat-item">
+          <div class="stat-label">Validations</div>
+          <div class="stat-value">0</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">SOL Earned</div>
+          <div class="stat-value">0.00</div>
+        </div>
+      </div>
+    </div>
+    
+    <button id="submitBtn">Signup</button>
+    <button id="connectBtn">Connect</button>
+    <button id="disconnectBtn">Disconnect</button>
+    
+    <div class="footer">
+      Powered by Solana • Secure & Privacy-Focused
+    </div>
+  </div>
+
+  <script src="../dist/popup.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+entrypoints = ["src/popup.ts", "src/background.ts"]
+outdir = "dist"
+target = "browser"
